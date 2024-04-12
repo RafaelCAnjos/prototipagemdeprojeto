@@ -74,12 +74,14 @@ body {
 .input-box {
     display: flex;
     flex-direction: column;
-    width: calc(50% - 0.55rem);
+    width: 100%; /* Alterado para 100% */
+    margin-bottom: 1.1rem; /* Adicionado espaçamento inferior */
 }
 
 .input-box input {
     margin: 0.6rem 0;
     padding: 0.8rem 1.2rem;
+    width: calc(100% - 2.4rem); /* Alterado para calcular o tamanho da entrada */
     border: none;
     border-radius: 10px;
     box-shadow: 1px 1px 6px #0000001c;
@@ -164,40 +166,22 @@ body {
 }
 
 @media screen and (max-width: 1064px) {
-    .input-box {
-        width: 100%;
-    }
-    .input-inline {
-        width: 100%;
-    }
-}
-
-
-@media screen and (max-width: 1330px) {
-    .form-image {
-        display: none;
-    }
-    .container {
-        width: auto;
-    }
-    .form {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 1064px) {
     .container {
         width: 90%;
         height: auto;
-        max-height: none; 
+        max-height: none;
+        flex-direction: column;
+        align-items: center; /* Centraliza o conteúdo na vertical */
+    }
+    .form-image,
+    .form {
+        width: 100%; /* Garante que ambas as partes ocupem 100% da largura */
+        padding: 2rem 0; /* Adiciona um espaçamento uniforme */
     }
     .input-group {
         flex-direction: column;
-        z-index: 5;
-        padding-right: 5rem;
-        max-height: 10rem;
-        overflow-y: scroll;
-        flex-wrap: nowrap;
+        padding: 0; /* Remove o padding para ajustar melhor os elementos */
+        max-height: none; /* Remove a altura máxima */
     }
     .gender-inputs {
         margin-top: 2rem;
@@ -210,5 +194,22 @@ body {
     }
     .gender-input {
         margin-top: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form-header {
+        flex-direction: column;
+        align-items: center; /* Centraliza o cabeçalho na vertical */
+    }
+    .form-header h1::after {
+        margin: 1rem auto; /* Ajusta o espaçamento do sublinhado */
+    }
+    .input-box input {
+        padding: 0.6rem 1rem; /* Reduz o padding dos inputs */
+        font-size: 0.9rem; /* Aumenta o tamanho da fonte */
+    }
+    .continue-button button {
+        margin-top: 2rem; /* Ajusta o espaçamento do botão */
     }
 }
